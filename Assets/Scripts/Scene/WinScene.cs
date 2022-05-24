@@ -10,7 +10,7 @@ public class WinScene : MonoBehaviour
 
     void Start()
     {
-        image.enabled = true; // 하얀 image 활성화
+        image.enabled = true;
     }
 
     void Update()
