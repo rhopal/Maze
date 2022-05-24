@@ -25,7 +25,7 @@ public class FAK : MonoBehaviour
             {
                 if (player.item[i] == null) // 비어있는 슬롯에
                 {
-                    player.item[i] = "FAK"; // 아이템을 추가하고 // 다른 아이템의 경우 "FAK"에 그 아이템의 이름을 적음
+                    player.item[i] = "FAK"; // 아이템 추가
                     switch (i)
                     {
                         case 0:
