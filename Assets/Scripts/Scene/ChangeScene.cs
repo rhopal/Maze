@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour
 {
-    public void ToGame() // 타이틀 scene이나 패배 scene에서 게임 scene으로 가기 위한 함수
+    public void ToGame() // Title Scene이나 Loss Scene에서 Game Scene으로 Scene 이동
     {
         SceneManager.LoadScene("Game");
         Cursor.lockState = CursorLockMode.Locked; // 마우스 커서 제어 불가능
