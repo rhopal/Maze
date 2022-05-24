@@ -14,7 +14,7 @@ public class ItemManager : MonoBehaviour
         if (group != null)
         {
             group.GetComponentsInChildren<Transform>(itemPos); // 150개의 위치값을 리스트에 저장
-            itemPos.RemoveAt(0);
+            itemPos.RemoveAt(0); // 부모의 위치는 (0, 0, 0)이기에 리스트에서 제거
         }
 
         for (int i = 0; i < 7; i++) // 아이템 수만큼
