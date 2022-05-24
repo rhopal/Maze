@@ -12,7 +12,7 @@ public class Exit : MonoBehaviour
     public bool getKey_2 = false; // 2번 열쇠
     public bool getKey_3 = false; // 3번 열쇠
     public bool getAllKey = false; // 모든 열쇠
-    public float rotSpeed = 0; // 모든 열쇠가 끼워졌을 때 오브젝트의 회전 속도를 제어하는 변수
+    public float rotSpeed = 0;
 
     void Start()
     {
@@ -28,12 +28,12 @@ public class Exit : MonoBehaviour
 
     void Update()
     {
-        if (getAllKey == true) // 모든 열쇠가 끼워지면
+        if (getAllKey == true)
         {
             rotSpeed += 2.0f;
-            transform.Rotate(0, 0, rotSpeed * Time.deltaTime); // 회전 속도를 점점 증가시키고
+            transform.Rotate(0, 0, rotSpeed * Time.deltaTime);
 
-            if (rotSpeed >= 2000.0f) // 회전 속도가 2000f 이상이면 2000f으로 고정
+            if (rotSpeed >= 2000.0f)
             {
                 rotSpeed = 2000.0f;
             }
