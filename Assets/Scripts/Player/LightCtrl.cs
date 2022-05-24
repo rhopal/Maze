@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LightCtrl : MonoBehaviour
 {
-	public GameObject player;
+    public GameObject player;
     public Exit exit;
     public float rotSpeed = 10.0f; // 회전 속도
     private Quaternion N = Quaternion.Euler(0, 0, 0); // 미리 회전 각을 설정
@@ -18,7 +18,7 @@ public class LightCtrl : MonoBehaviour
 
 	void Update()
 	{
-        if (exit.getAllKey == true) return; // 탈출구에 모든 열쇠를 끼웠으면 행동 중지
+        if (exit.getAllKey == true) return; // 탈출구에 모든 열쇠를 끼우면 입력 받지 않음
 
         Vector3 pos = new Vector3(player.transform.position.x, 0.1f, player.transform.position.z);
 		transform.position = pos; // 조명 위치 설정
