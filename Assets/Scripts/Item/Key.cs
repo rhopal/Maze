@@ -22,15 +22,11 @@ public class Key : MonoBehaviour
     {
         if (collision.collider.gameObject.name == "Player")
         {
-            //if (player.haveKey_1 == true) // 열쇠가 여러 개 있을 경우, 이 열쇠와 충돌한 플레이어가 해당 열쇠를 보유 중이면 획득 불가능
-            //{
-
-            //}
             for (int i = 0; i < player.item.Length; i++)
             {
                 if (player.item[i] == null)
                 {
-                    switch (number) // 열쇠의 경우에는 해당 열쇠의 number에  따라 아이템 배열에 다르게 추가
+                    switch (number) // 열쇠의 경우에는 해당 열쇠의 number에 따라 아이템 배열에 다르게 추가
                     {
                         case 1:
                             player.item[i] = "Key_1";
