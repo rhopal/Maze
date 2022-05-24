@@ -15,9 +15,9 @@ public class Heartbeat : MonoBehaviour
 
     void Update()
     {
-        if (enemy.state != EnemyCtrl.State.PATROL) // Enemy가 플레이어를 바라보고 있지 않을 때
+        if (enemy.state != EnemyCtrl.State.PATROL) // 적이 플레이어를 바라보고 있는 경우
         {
-            if (enemy.dist <= 15) // Enemy와 플레이어의 거리가 15f 이하이면 audio 속도 점점 빠르게
+            if (enemy.dist <= 15) // 적과 플레이어의 거리가 가까워지면 심음 빠르게
             {
                 audio.pitch += 0.01f;
                 if (audio.pitch >= 1.5f)
@@ -26,9 +26,9 @@ public class Heartbeat : MonoBehaviour
                 }
             }
         }
-        else // Enemy와 플레이어의 거리가 15f 초과이면 audio 속도 점점 느리게
+        else // 적이 플레이어를 바라보고 있지 않은 경우
         {
-            audio.pitch -= 0.01f;
+            audio.pitch -= 0.01f; // 심음 느리게
             if (audio.pitch <= 1.0f)
             {
                 audio.pitch = 1.0f;
