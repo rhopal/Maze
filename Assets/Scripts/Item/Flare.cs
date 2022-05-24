@@ -25,7 +25,7 @@ public class Flare : MonoBehaviour
             {
                 if (player.item[i] == null)
                 {
-                    player.item[i] = "Flare"; // Flare의 경우에는
+                    player.item[i] = "Flare";
                     switch (i)
                     {
                         case 0:
