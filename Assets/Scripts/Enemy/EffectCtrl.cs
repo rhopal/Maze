@@ -24,7 +24,7 @@ public class EffectCtrl : MonoBehaviour
             return;
         }
 
-        if (enemy.state != EnemyCtrl.State.PATROL) // 적이 플레이어를 바라보고 있지 않을 경우 이펙트 점점 연하게
+        if (enemy.state != EnemyCtrl.State.PATROL) // 적이 바라보고 있는 경우 이펙트 점점 진하게
         {
             alpha += 0.3f * Time.deltaTime;
             if (alpha >= 0.6f)
@@ -33,7 +33,7 @@ public class EffectCtrl : MonoBehaviour
             }
             image.color = new Color(image.color.r, image.color.g, image.color.b, alpha);
         }
-        else // 적이 플레이어를 바라보고 있으면 이펙트 점점 진하게
+        else // 적이 플레이어를 바라보고 있지 않은 경우 이펙트 점점 연하게
         {
             alpha -= 0.3f * Time.deltaTime;
             if (alpha <= 0)
