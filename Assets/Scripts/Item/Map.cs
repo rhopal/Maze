@@ -32,7 +32,7 @@ public class Map : MonoBehaviour
                             image[i].sprite = sprite;
                             image[i].enabled = true;
                             break;
-                        case 1: 
+                        case 1:
                             image[i].sprite = sprite;
                             image[i].enabled = true;
                             break;
