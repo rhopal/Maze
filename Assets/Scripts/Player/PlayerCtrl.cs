@@ -25,7 +25,7 @@ public class PlayerCtrl : MonoBehaviour
     public Image heal;
     public Image clear;
     public Image die;
-	private float speed = 7.0f;
+    private float speed = 7.0f;
     private float flareDur = 0;
     private float color = 1.0f;
     private float xRot = 60.0f;
@@ -77,13 +77,13 @@ public class PlayerCtrl : MonoBehaviour
 
     void Update()
     {
-        if (exit.getAllKey == true)
+        if (exit.getAllKey == true) // 탈출구에 열쇠를 다 끼우면 입력 받지 않음
         {
             StopAllCoroutines();
             return;
-        } // 탈출구에 모든 열쇠를 끼우면 모든 행동 중지
+        }
 
-        if (isDie == true) // 사망하면
+        if (isDie == true) // 죽었을 경우
         {
             die.enabled = true; // 검은 화면을 나타내는 image를 활성화시키고
             dieAlpha += 0.5f * Time.deltaTime;
@@ -101,18 +101,12 @@ public class PlayerCtrl : MonoBehaviour
         {
             switch (item[0])
             {
-                case "Key_1": // 열쇠 사용 불가능일 경우 Beep 소리 재생할 것
-                    break;
-                case "Key_2":
-                    break;
-                case "Key_3":
-                    break;
                 case "FAK":
-                    if (hp < 2) // 체력이 2 미만일 경우에만
+                    if (hp < 2) // 체력이 1일 경우에만
                     {
-                        audio.PlayOneShot(clip[0]); // 체력 회복 소리 재생하고
-                        hp++; // 체력을 1 회복시키며
-                        image[0].enabled = false; // 해당 슬롯 이미지를 비활성화,
+                        audio.PlayOneShot(clip[0]); // 체력 회복 소리 재생
+                        hp++; // 체력 1 회복
+                        image[0].enabled = false; // 해당 슬롯 이미지를 비활성화
                         item[0] = null; // 해당 아이템 배열 제거
                     }
                     break;
@@ -134,22 +128,16 @@ public class PlayerCtrl : MonoBehaviour
                     flareIdx = 1; // 해당 아이템 슬롯이 몇 번째 슬롯인지 확인하기 위한 변수
                     break;
                 case "Trap":
-                    Instantiate(sticky, new Vector3(transform.position.x, -0.4f, transform.position.z), transform.rotation); // 플레이어 위치에 덫 생성
+                    Instantiate(sticky, new Vector3(transform.position.x, -0.4f, transform.position.z), transform.rotation); // 플레이어 위치에  생성
                     image[0].enabled = false;
                     item[0] = null;
                     break;
             }
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        else if (Input.GetKeyDown(KeyCode.Alpha2)) // 아이템 슬롯 2
         {
             switch (item[1])
             {
-                case "Key_1":
-                    break;
-                case "Key_2":
-                    break;
-                case "Key_3":
-                    break;
                 case "FAK":
                     if (hp < 2)
                     {
@@ -182,8 +170,8 @@ public class PlayerCtrl : MonoBehaviour
                     item[1] = null;
                     break;
             }
-        } // 아이템 슬롯 2번이 눌렸을 때
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3)) // 아이템 슬롯 3
         {
             switch (item[2])
             {
@@ -225,7 +213,7 @@ public class PlayerCtrl : MonoBehaviour
                     item[2] = null;
                     break;
             }
-        } // 3번이 눌렸을 때
+        }
 
         if (useFlare == true)
         {
@@ -278,7 +266,7 @@ public class PlayerCtrl : MonoBehaviour
         }
     }
 
-    void FixedUpdate() // 이동 담당
+    void FixedUpdate() // 이동
     {
         if (exit.getAllKey == true) return;
 
@@ -342,7 +330,7 @@ public class PlayerCtrl : MonoBehaviour
                 switch (item[0])
                 {
                     case "Key_1": // 해당 슬롯에 있는 열쇠가 1번 열쇠일 때
-                        exit.getKey_1 = true; // 탈출구 변수 제어
+                        exit.getKey_1 = true;
                         image[0].enabled = false; // 해당 슬롯 image 비활성화
                         item[0] = null; // 해당 아이템 배열 제거
                         haveKey_1 = false; // 플레이어의 열쇠 소지 유무 변수 제어
@@ -384,7 +372,7 @@ public class PlayerCtrl : MonoBehaviour
                         haveKey_3 = false;
                         break;
                 }
-            } // 2번 슬롯을 눌러 열쇠 사용 시
+            }
             else if (Input.GetKeyDown(KeyCode.Alpha3))
             {
                 switch (item[2])
